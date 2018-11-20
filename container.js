@@ -7,7 +7,7 @@ const simpleDependencies = [['_', 'lodash'], [''], []];
 
 simpleDependencies.map(val => {
   container.register(val[0], () => require(val[1]));
-});
+});//for each var, register [var[0], var[1]]
 
 //const _ = require('lodash');
 
