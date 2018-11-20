@@ -9,4 +9,7 @@ simpleDependencies.map(val => {
   container.register(val[0], () => require(val[1]));
 });
 
-const _ = require('lodash');
+//const _ = require('lodash');
+
+container.load(path.join(__dirname,'/controllers'));
+container.load(path.join(__dirname,'/helpers'))
