@@ -5,8 +5,10 @@ const container = dependable.container();
 
 const simpleDependencies = [['_', 'lodash']];
 
-simpleDependencies.map(val => {
-  container.register(val[0], () => require(val[1]));
+simpleDependencies.forEach(function(val) {
+  container.register(val[0], function() {
+    require(val[1]);
+  });
 }); //for each var, register [var[0], var[1]]
 
 //const _ = require('lodash');
@@ -14,7 +16,7 @@ simpleDependencies.map(val => {
 container.load(path.join(__dirname, '/controllers'));
 container.load(path.join(__dirname, '/helpers'));
 
-container.register('conatiner', () => {
+container.register('conatiner', function() {
   return container;
 });
 
